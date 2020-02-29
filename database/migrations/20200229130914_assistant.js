@@ -17,7 +17,7 @@ exports.up = function(knex) {
 
     tbl.string("a_home_airport", 30);
 
-    tbl.boolean("available").defaultTo(0);
+    tbl.boolean("available").defaultTo(false);
   });
 };
 

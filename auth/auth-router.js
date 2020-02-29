@@ -30,7 +30,6 @@ router.post("/login-parent", (req, res) => {
   Auth.findParent(email, password)
     .first()
     .then(parent => {
-      console.log(parent);
       if (parent && bcrypt.compareSync(password, parent.password)) {
         const token = signToken(parent);
         res.status(200).json({ token });
@@ -56,7 +55,7 @@ router.post("/register-assistant", (req, res) => {
       res.status(201).json(newAssistant);
     })
     .catch(err => {
-      console.log(err);
+      console.log("error", err);
       res.status(500).json({ message: "There was an error with the server." });
     });
 });
@@ -69,7 +68,6 @@ router.post("/login-assistant", (req, res) => {
   Auth.findAssistant(email, password)
     .first()
     .then(assistant => {
-      console.log(assistant, "user line 79");
       if (assistant && bcrypt.compareSync(password, assistant.password)) {
         const token = signToken(assistant);
 
@@ -79,7 +77,7 @@ router.post("/login-assistant", (req, res) => {
       }
     })
     .catch(err => {
-      console.log(err);
+      console.log("Error", err);
       res.status(500).json({ error: "There was an error" });
     });
 });

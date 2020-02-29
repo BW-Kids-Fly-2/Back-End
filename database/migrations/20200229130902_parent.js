@@ -1,5 +1,6 @@
 exports.up = function(knex) {
   return knex.schema.createTable("parent", tbl => {
+    //create an id
     tbl.increments();
 
     tbl
