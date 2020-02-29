@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const Auth = require("./auth-model.js");
 const { jwtSecret } = require("./secret");
 
-// --- REGISTER
+// --- PARENT REGISTER
 router.post("/register-parent", (req, res) => {
   let parent = req.body;
   // hash the password
@@ -23,7 +23,7 @@ router.post("/register-parent", (req, res) => {
     });
 });
 
-// --- LOGIN
+// --- PARENT LOGIN
 router.post("/login-parent", (req, res) => {
   let { email, password } = req.body;
 
@@ -41,6 +41,46 @@ router.post("/login-parent", (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json({ message: "There was an error with the server." });
+    });
+});
+
+// --- ASSISTANT REGISTER
+
+router.post("/register-assistant", (req, res) => {
+  let assistant = req.body;
+  const hash = bcrypt.hashSync(assistant.password, 3);
+  assistant.password = hash;
+
+  Auth.addAssistant(assistant)
+    .then(newAssistant => {
+      res.status(201).json(newAssistant);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: "There was an error with the server." });
+    });
+});
+
+// --- ASSISTANT LOGIN
+
+router.post("/login-assistant", (req, res) => {
+  let { email, password } = req.body;
+
+  Auth.findAssistant(email, password)
+    .first()
+    .then(assistant => {
+      console.log(assistant, "user line 79");
+      if (assistant && bcrypt.compareSync(password, assistant.password)) {
+        const token = signToken(assistant);
+
+        res.status(200).json({ token });
+      } else {
+        res.status(401).json({ message: "Invalid Credentials" });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: "There was an error" });
     });
 });
 
