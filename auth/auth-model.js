@@ -21,9 +21,7 @@ function findParent(filter) {
 
 function findParentById(id) {
   return db("parent")
-    .where({
-      id: id
-    })
+    .where({ id })
     .first();
 }
 
@@ -41,8 +39,6 @@ function findAssistant(filter) {
 
 function findAssistantById(id) {
   return db("assistant")
-    .where({
-      id: id
-    })
+    .where({ id })
     .first();
 }
