@@ -28,10 +28,8 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: "./database/migrations"
-    },
-    seeds: {
-      directory: "./database/seeds"
+      directory: "./database/migrations",
+      tableName: "knex_migrations"
     }
   }
 };
