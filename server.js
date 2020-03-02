@@ -20,4 +20,8 @@ server.get("/", (req, res) => {
   res.send("Welcome to KidsFly API!");
 });
 
+server.get("/api/users", (req, res) => {
+  res.send("/api/users is spinning up...please wait!");
+});
+
 module.exports = server;
