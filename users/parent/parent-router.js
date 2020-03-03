@@ -1,7 +1,8 @@
 const router = require("express").Router();
 
 const Parent = require("./parent-model.js");
-
+const Flights = require("../../flight/flight-model.js");
+const Trips = require("../../trip/trip-model.js");
 const Auth = require("../../auth/authenticate-middleware");
 
 router.get("/", Auth, (req, res) => {
