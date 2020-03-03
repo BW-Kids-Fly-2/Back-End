@@ -16,12 +16,19 @@ server.use(cors());
 
 server.use("/api/auth", authRouter);
 
-server.get("/", (req, res) => {
-  res.send("Welcome to KidsFly API!");
-});
+// server.get("/", (req, res) => {
+//   res.send("Welcome to KidsFly API!");
+// });
 
 server.get("/api/users", (req, res) => {
   res.send("/api/users is spinning up...please wait!");
+});
+
+server.use(function(req, res, next) {
+  req.name = "John Doe";
+});
+server.get("/", (req, res) => {
+  res.json({ name: req.name });
 });
 
 module.exports = server;
