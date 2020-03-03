@@ -9,7 +9,7 @@ exports.seed = function(knex) {
           {
             id: 1,
             trips_parent_id: 1,
-            // trips_assistant_id: 1,
+            trips_assistant_id: 1,
             trip_name: "Trip to the edge of the galaxy.",
             kids_traveling: 2,
             checked_bags: 3,
@@ -21,7 +21,7 @@ exports.seed = function(knex) {
           {
             id: 2,
             trips_parent_id: 2,
-            // trips_assistant_id: 2,
+            trips_assistant_id: 2,
             trip_name: "Trip to Spaceball One",
             kids_traveling: 3,
             checked_bags: 5,
@@ -34,7 +34,7 @@ exports.seed = function(knex) {
           {
             id: 3,
             trips_parent_id: 3,
-            // trips_assistant_id: null,
+            trips_assistant_id: null,
             trip_name: "Trip to Druidia",
             kids_traveling: 2,
             checked_bags: 3,
@@ -46,7 +46,7 @@ exports.seed = function(knex) {
           {
             id: 4,
             trips_parent_id: 1,
-            // trips_assistant_id: null,
+            trips_assistant_id: null,
             trip_name: "Going to see Yogurt",
             kids_traveling: 1,
             checked_bags: 2,

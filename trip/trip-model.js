@@ -12,17 +12,15 @@ module.exports = {
 };
 
 function find() {
-  return db("trips"); //.select("id", "name");
+  return db("trips");
 }
 
 function findTripsByParentId(filter) {
   return db("trips").where("trips_parent_id", filter);
-  // .select("id", "username", "department");
 }
 
 function findByUser(filter) {
   return db("trips").where("trips.email", filter);
-  // .select("id", "username", "department");
 }
 
 function findById(id) {

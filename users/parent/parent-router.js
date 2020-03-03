@@ -52,8 +52,8 @@ router.delete("/delete/:id", async (req, res) => {
 });
 
 router.get("/myTrips", Auth, (req, res) => {
-  const id = req.user.id;
-
+  const { id } = req.user;
+  console.log("ID", id);
   Trips.findTripsByParentId(id)
     .then(trip => {
       res.json(trip);
