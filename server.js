@@ -27,15 +27,35 @@ server.use("/api/trips", tripsRouter);
 
 // --- GET REQUESTS
 server.get("/", (req, res) => {
-  res.send("Welcome to KidsFly API!");
+  res.send("KidsFly is spinning up...please wait!");
+});
+
+server.get("/api", (req, res) => {
+  res.send("/api is spinning up...please wait!");
+});
+
+server.get("/api/flights", (req, res) => {
+  res.send("To infinity!...And beyond!!!");
+});
+
+server.get("/api/trips", (req, res) => {
+  res.send("Ooops, nothing to see here!");
+});
+
+server.get("/api/auth", (req, res) => {
+  res.send("/api/auth is spinning up...please wait!");
 });
 
 server.get("/api/users", (req, res) => {
-  res.send("/api/users is getting ready!");
+  res.send("/api/users is spinning up...please wait!");
+});
+
+server.get("/api/users/assistant", (req, res) => {
+  res.send("/api/users/assistant is spinning up...please wait!");
 });
 
 server.get("/api/users/parent", (req, res) => {
-  res.send("/api/users/parent is getting ready!");
+  res.send("/api/users/parent is spinning up...please wait!");
 });
 
 module.exports = server;

@@ -53,10 +53,11 @@ router.delete("/delete/:id", async (req, res) => {
 
 router.get("/myTrips", Auth, (req, res) => {
   const { id } = req.user;
-  console.log("ID", id);
+
   Trips.findTripsByParentId(id)
     .then(trip => {
-      res.json(trip);
+      console.log(trip);
+      res.status(200).json(trip);
     })
     .catch(err => res.send(err));
 });
@@ -132,9 +133,11 @@ router.get("/myFlights", Auth, (req, res) => {
 
   Flights.findFlightsByParentId(id)
     .then(flight => {
-      res.json(flight);
+      res.status(200).json(flight);
     })
-    .catch(err => res.send(err));
+    .catch(err =>
+      res.status(500).json({ message: "There was an error with the server." })
+    );
 });
 
 router.get("/myFlights/:id", Auth, (req, res) => {
