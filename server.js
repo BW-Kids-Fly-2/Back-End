@@ -25,7 +25,7 @@ server.use("/api/users/assistant", assistantRouter);
 server.use("/api/flights", flightRouter);
 server.use("/api/trips", tripsRouter);
 
---- GET REQUESTS
+// GET REQUESTS
 server.get("/", (req, res) => {
   res.send("KidsFly is spinning up...please wait!");
 });
