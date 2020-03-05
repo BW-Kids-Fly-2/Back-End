@@ -9,7 +9,7 @@ exports.seed = function(knex) {
           {
             id: 1,
             flight_info_assistant_id_dep: 1,
-            flight_info_assistant_id_arr: null,
+            flight_info_assistant_id_arr: 1,
 
             flight_info_parent_id: 1,
             flight_info_trips_id: 1,
